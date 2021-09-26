@@ -9,39 +9,37 @@ bot_id=os.getenv('bot_id')
 aio = Client('consumer_name','consumer_key')
 
 def demo1(bot,update):
-  aio.send('bedroom-light',0)
   chat_id = bot.message.chat_id
-  bot.message.reply_text('Light is turning on')
+  bot.message.reply_text('light is turning on')
+  aio.send('bedroom-light',1)
 
 def demo2(bot,update):
-  aio.send('bedroom-light',1)
   chat_id = bot.message.chat_id
-  bot.message.reply_text('Light is turning off')
+  bot.message.reply_text('light is turning off')
+  aio.send('bedroom-light',0)
 
 def demo3(bot,update):
-  aio.send('bedroom-fan',0)
   chat_id = bot.message.chat_id
-  bot.message.reply_text('Fan is turning on')
+  bot.message.reply_text('fan is turning on')
+  aio.send('bedroom-fan',1)
 
 def demo4(bot,update):
-  aio.send('bedroom-fan',1)
   chat_id = bot.message.chat_id
-  bot.message.reply_text('Fan is turning off')
-
+  bot.message.reply_text('fan is turning off')
+  aio.send('bedroom-fan',0)
 
 def main(bot,update):
   a= bot.message.text.lower()
-  if a =="Turn on light":
+  if a =="turn on light":
     demo1(bot,update)
-  elif a =="Turn off light":
-    demo2(bot,update) 
-  elif a =="Turn on fan":
+  elif a =="turn off light":
+    demo2(bot,update)
+  elif a =="turn on fan":
     demo3(bot,update)
-  elif a =="Turn off fan":
-    demo4(bot,update)      
+  elif a =="turn off fan":
+    demo4(bot,update)    
 
-
-bot_token ='bot_id'
+bot_token = '2008744403:AAHmmYcaJHza6ClHEhTGTb5Jlc7jroHWvjI'
 u = Updater(bot_token,use_context=True)
 dp = u.dispatcher
 dp.add_handler(MessageHandler(Filters.text,main))
