@@ -1,0 +1,2 @@
+Adafruit-IO
+python-telegram-bot==13.0
