@@ -1,5 +1,6 @@
 from Adafruit_IO import Client
 from telegram.ext import Updater, MessageHandler, Filters
+import os
 
 consumer_name=os.getenv('consumer_name')
 consumer_key=os.getenv('consumer_key')
